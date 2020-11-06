@@ -27,4 +27,19 @@ ActiveRecord::Schema.define(version: 2020_11_04_205101) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "list_headings", force: :cascade do |t|
+    t.string "headings"
+  end
+
+   create_table "user_lists", force: :cascade do |t|
+    t.string "list_heading"
+    t.string "ideas"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_lists_on_user_id"
+    t.index ["list_heading_id"], name: "index_list_heading_on_user_id"
+  end
+
+  
 end
