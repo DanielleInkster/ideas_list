@@ -4,4 +4,5 @@ class UserIdeasList < ApplicationRecord
   belongs_to :user
 
   validates :ideas, presence: true
+  has_many :list_headings
 end
